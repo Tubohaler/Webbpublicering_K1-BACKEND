@@ -1,10 +1,19 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const { Client } = require("pg");
+
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
 
 // //Knex
 const config = require("./data/knexfile"); //TILLAGD
-const knex = require("./data/database")(config[process.env.NODE.ENV]); // TILLAGD
+const knex = require("./data/database")(config[process.env.NODE.ENV]);
+// ({client: 'pg'}); // TILLAGD
 const { argv } = require("process");
 
 const fs = require("fs");
