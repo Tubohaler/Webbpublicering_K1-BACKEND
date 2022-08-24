@@ -4,7 +4,7 @@ const app = express();
 
 // //Knex
 const config = require("./data/knexfile"); //TILLAGD
-const knex = require("./data/database")(config[process.env.NODE.ENV]); // TILLAGD
+const knex = require("./data/database")(config[process.env.NODE_ENV]); // TILLAGD
 const { argv } = require("process");
 
 const fs = require("fs");
