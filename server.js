@@ -3,9 +3,7 @@ const cors = require("cors");
 const app = express();
 
 // //Knex
-const config = require("./data/knexfile");
-const environment = process.env.NODE_ENV || "development";
-const knex = require("./data/database")(config[environment]); // TILLAGD
+const knex = require("./data/database"); // TILLAGD
 const { argv } = require("process");
 
 const fs = require("fs");
